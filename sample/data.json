@@ -1,0 +1,45 @@
+{
+    "data": {
+        "activePlus": {
+            "1": "11"
+        },
+        "languages": {
+            "ENG": "english",
+            "MAL": "malayalam"
+        },
+        "states": {
+            "S1": "kerala",
+            "S2": "tamil nadu",
+            "S3": "guna milan",
+            "S4": "north indian"
+        },
+        "castes": {
+            "1": {
+                "1": "cast_one",
+                "10": "cast_two",
+                "11": "cast_three",
+                "12": "cast_four",
+                "13": "cast_five",
+                "14": "cast_six",
+                "15": "cast_seven"
+            },
+            "2": {
+                "1": "cast_one",
+                "10": "cast_two",
+                "11": "cast_three",
+                "12": "cast_four",
+                "13": "cast_five",
+                "14": "cast_six",
+                "15": "cast_seven"
+            },
+            "3": [],
+            "4": []
+        },
+        "chartFormat": [
+            "south indian",
+            "north indian",
+            "east indian",
+            "kerala"
+        ]
+    }
+}

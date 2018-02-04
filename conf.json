@@ -1,0 +1,12 @@
+{
+    "_info": "here we can provide inputs",
+    "input_file": "sample/data.json",
+    "output_file": "sample/data.csv",
+    "csv_header": [
+        "dimension",
+        "key1",
+        "key2",
+        "key3",
+        "value"
+    ]
+}

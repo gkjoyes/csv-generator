@@ -8,3 +8,5 @@ csv_generator
  * User inputs can be provided with `conf.json`
  
  * Sample `input file` and `output file` is available on `sample` directory
+
+ * Its working on the top of  `python 3.6`

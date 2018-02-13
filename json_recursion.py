@@ -25,7 +25,7 @@ def handler(data, out, jd, keys):
 
     # ----------- if data is list
     elif type(data) is list:
-        line_keys = ', '.join("'" + safe_get(keys, i) + "'" for i in range(jd))
+        line_keys = ','.join("'" + safe_get(keys, i) + "'" for i in range(jd))
 
         for value in data:
             write_to_file(line_keys, value, out)
@@ -36,14 +36,14 @@ def handler(data, out, jd, keys):
         for key, value in data.items():
             keys.append(key)
             # ----------row of key values
-            row = ', '.join("'" + safe_get(keys, i) + "'" for i in range(jd))
+            row = ','.join("'" + safe_get(keys, i) + "'" for i in range(jd))
 
             write_to_file(row, value, out)
             keys.pop()
 
     # ---------- id data is string
     elif type(data) is str:
-        line_keys = ', '.join("'" + safe_get(keys, i) + "'" for i in range(jd))
+        line_keys = ','.join("'" + safe_get(keys, i) + "'" for i in range(jd))
 
         write_to_file(line_keys, data, out)
 
@@ -63,7 +63,7 @@ def safe_get(l, idx):
     try:
         return l[idx]
     except IndexError:
-        return " "
+        return ""
 
 
 def depth(x):

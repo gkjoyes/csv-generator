@@ -9,4 +9,4 @@ csv_generator
  
  * Sample `input file` and `output file` is available on `sample` directory
 
- * Its working on the top of  `python 3.6`
+ * Its working on the top of  `python 3.5`

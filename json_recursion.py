@@ -1,7 +1,11 @@
 """
-recursive travelling to json data
+This is the program to demonstrate how to generate csv
+from json data using recursion.
 """
+
 import json
+import os
+from argparse import ArgumentParser
 
 
 def handler(data, out, jd, keys):
@@ -15,6 +19,7 @@ def handler(data, out, jd, keys):
             # remove one key if same level iteration
             if index > 0:
                 keys.pop()
+
             # append key
             keys.append(key)
             handler(data[key], out, jd, keys)
@@ -78,31 +83,55 @@ def depth(x):
     return 0
 
 
-def main():
+def read_conf(file):
     """
-    step for generating csv file
+    :param file defines conf file path.
+    :return conf file object.
     """
 
     try:
-        # conf file
-        conf_file = open("conf.json", "r")
-        conf_data = json.load(conf_file)
-
-        # input and output file
-        input_file = open(conf_data["input_file"], "r")
-        out_file = open(conf_data["output_file"], "w")
-
-        # csv headers
-        out_file.write(" ".join(conf_data["csv_header"]))
-
-        # iteration through json
-        data = json.load(input_file)["data"]
-        json_depth = depth(data)
-        handler(data, out_file, json_depth, keys=[])
+        conf_file = open(file, "r")
+        params = json.load(conf_file)
+        return params
 
     except Exception as err:
-        print("Error : ", err)
+        print("Error: ", err)
+
+
+def get_arguments():
+    """
+    read command line arguments
+    :return conf file path
+    """
+
+    parser = ArgumentParser()
+    parser.add_argument("-f", "--file", dest="filename", help="Provide conf file path")
+    conf_file = parser.parse_args().filename
+
+    while conf_file is None:
+        file = input("Please provide config file path:")
+        if os.path.exists(file) and os.access(file, os.R_OK):
+            conf_file = file
+
+    return conf_file
 
 
 if __name__ == '__main__':
-    main()
+
+    # Read conf file.
+    config_file = get_arguments()
+    conf_data = read_conf(config_file)
+
+    # Open input and output files.
+    in_file = open(conf_data["file_in"], "r")
+    out_file = open(conf_data["file_out"], "w")
+
+    # Write csv headers to output file if have anything in conf file.
+    out_file.write(" ".join(conf_data["csv_header"]))
+
+    # Iteration through json data and construct csv.
+    input_data = json.load(in_file)["data"]
+    print(input_data)
+
+    # json_depth = depth(data)
+    # handler(data, out_file, json_depth, keys=[])

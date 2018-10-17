@@ -1,12 +1,12 @@
-csv_generator
-====
-> One simple csv generator, but something different in look and work
+# csv_generator
+
+- Simple tool for generating `csv` from json.
 
 
-### <u>Getting Started</u>
+## Getting Started
 
- * User inputs can be provided with `conf.json`
+ - User inputs can be provided through `conf.json`.
  
- * Sample `input file` and `output file` is available on `sample` directory
+ - Sample processing input and output is available in [Sample](https://github.com/g-kutty/csv-generator/tree/master/sample) directory.
 
- * Its working on the top of  `python 3.6`
+ - This tool was constructed on the top of `python 3.6`.
